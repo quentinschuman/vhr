@@ -41,18 +41,32 @@ public class RabbitConfig {
     }
 
     @Bean
-    Queue mailQueue() {
-        return new Queue(MailConstants.MAIL_QUEUE_NAME, true);
+    Queue mailQueueEmp() {
+        return new Queue(MailConstants.MAIL_QUEUE_NAME_EMP, true);
     }
 
     @Bean
-    DirectExchange mailExchange() {
-        return new DirectExchange(MailConstants.MAIL_EXCHANGE_NAME, true, false);
+    Queue mailQueueEmpec() {
+        return new Queue(MailConstants.MAIL_QUEUE_NAME_EMPEC, true);
     }
 
     @Bean
-    Binding mailBinding() {
-        return BindingBuilder.bind(mailQueue()).to(mailExchange()).with(MailConstants.MAIL_ROUTING_KEY_NAME);
+    DirectExchange mailExchangeEmp() {
+        return new DirectExchange(MailConstants.MAIL_EXCHANGE_NAME_EMP, true, false);
     }
 
+    @Bean
+    DirectExchange mailExchangeEmpec() {
+        return new DirectExchange(MailConstants.MAIL_EXCHANGE_NAME_EMPEC, true, false);
+    }
+
+    @Bean
+    Binding mailBindingEmp() {
+        return BindingBuilder.bind(mailQueueEmp()).to(mailExchangeEmp()).with(MailConstants.MAIL_ROUTING_KEY_NAME_EMP);
+    }
+
+    @Bean
+    Binding mailBindingEmpec() {
+        return BindingBuilder.bind(mailQueueEmpec()).to(mailExchangeEmpec()).with(MailConstants.MAIL_ROUTING_KEY_NAME_EMPEC);
+    }
 }

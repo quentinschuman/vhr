@@ -521,4 +521,7 @@
       workAge = #{workAge,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+    <select id="getAllEmployeeNames" resultMap="BaseResultMap">
+        select id,`name` from employee
+    </select>
 </mapper>

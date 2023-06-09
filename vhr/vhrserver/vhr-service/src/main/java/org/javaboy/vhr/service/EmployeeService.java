@@ -65,12 +65,12 @@ public class EmployeeService {
             MailSendLog mailSendLog = new MailSendLog();
             mailSendLog.setMsgId(msgId);
             mailSendLog.setCreateTime(new Date());
-            mailSendLog.setExchange(MailConstants.MAIL_EXCHANGE_NAME);
-            mailSendLog.setRouteKey(MailConstants.MAIL_ROUTING_KEY_NAME);
+            mailSendLog.setExchange(MailConstants.MAIL_EXCHANGE_NAME_EMP);
+            mailSendLog.setRouteKey(MailConstants.MAIL_ROUTING_KEY_NAME_EMP);
             mailSendLog.setEmpId(emp.getId());
             mailSendLog.setTryTime(new Date(System.currentTimeMillis() + 1000 * 60 * MailConstants.MSG_TIMEOUT));
             mailSendLogService.insert(mailSendLog);
-            rabbitTemplate.convertAndSend(MailConstants.MAIL_EXCHANGE_NAME, MailConstants.MAIL_ROUTING_KEY_NAME, emp, new CorrelationData(msgId));
+            rabbitTemplate.convertAndSend(MailConstants.MAIL_EXCHANGE_NAME_EMP, MailConstants.MAIL_ROUTING_KEY_NAME_EMP, emp, new CorrelationData(msgId));
         }
         return result;
     }
@@ -108,5 +108,9 @@ public class EmployeeService {
 
     public Employee getEmployeeById(Integer empId) {
         return employeeMapper.getEmployeeById(empId);
+    }
+
+    public List<Employee> getAllEmployeeNames() {
+        return employeeMapper.getAllEmployeeNames();
     }
 }

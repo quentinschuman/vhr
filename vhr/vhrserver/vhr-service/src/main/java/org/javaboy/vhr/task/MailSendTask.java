@@ -34,7 +34,7 @@ public class MailSendTask {
             }else{
                 mailSendLogService.updateCount(mailSendLog.getMsgId(), new Date());
                 Employee emp = employeeService.getEmployeeById(mailSendLog.getEmpId());
-                rabbitTemplate.convertAndSend(MailConstants.MAIL_EXCHANGE_NAME, MailConstants.MAIL_ROUTING_KEY_NAME, emp, new CorrelationData(mailSendLog.getMsgId()));
+                rabbitTemplate.convertAndSend(MailConstants.MAIL_EXCHANGE_NAME_EMP, MailConstants.MAIL_ROUTING_KEY_NAME_EMP, emp, new CorrelationData(mailSendLog.getMsgId()));
             }
         });
     }

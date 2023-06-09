@@ -14,7 +14,12 @@ public class MailserverApplication {
     }
 
     @Bean
-    Queue queue() {
-        return new Queue(MailConstants.MAIL_QUEUE_NAME);
+    Queue queueEmp() {
+        return new Queue(MailConstants.MAIL_QUEUE_NAME_EMP);
+    }
+
+    @Bean
+    Queue queueEmpec() {
+        return new Queue(MailConstants.MAIL_QUEUE_NAME_EMPEC);
     }
 }

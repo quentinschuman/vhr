@@ -46,7 +46,7 @@ public class MailReceiver {
     @Autowired
     StringRedisTemplate redisTemplate;
 
-    @RabbitListener(queues = MailConstants.MAIL_QUEUE_NAME)
+    @RabbitListener(queues = MailConstants.MAIL_QUEUE_NAME_EMP)
     public void handler(Message message, Channel channel) throws IOException {
         Employee employee = (Employee) message.getPayload();
         MessageHeaders headers = message.getHeaders();
