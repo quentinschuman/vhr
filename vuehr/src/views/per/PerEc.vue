@@ -137,13 +137,14 @@
         <el-dialog
                 :title="title"
                 :visible.sync="dialogVisible"
-                width="80%">
+                width="60%">
             <div>
                 <el-form :model="empEc" :rules="rules" ref="empEcForm">
                     <el-row>
                         <el-col :span='6'>
-                            <el-select v-model="empEc.eid" placeholder="姓名" size="mini"
-                                       style="width: 130px;">
+                            <el-form-item label="员工姓名:" prop="eid">
+                                <el-select v-model="empEc.eid" placeholder="姓名" size="mini"
+                                       style="width: 150px;">
                                 <el-option
                                         v-for="item in empNames"
                                         :key="item.id"
@@ -151,6 +152,7 @@
                                         :value="item.id">
                                 </el-option>
                             </el-select>
+                            </el-form-item>
                         </el-col>
                     </el-row>
                     <el-row>
@@ -160,7 +162,7 @@
                                           placeholder="请输入奖罚原因"></el-input>
                             </el-form-item>
                         </el-col>
-                        <el-col :span="5">
+                        <el-col :span="6">
                             <el-form-item label="奖罚类别:" prop="ecType">
                                 <el-radio-group v-model="empEc.ecType">
                                     <el-radio label="0">奖</el-radio>
@@ -238,6 +240,7 @@
                 },
                 empNames: [],
                 rules: {
+                    eid: [{required: true, message: '请选择员工姓名', trigger: 'blur'}],
                     ecDate: [{required: true, message: '请输入奖罚日期', trigger: 'blur'}],
                     ecReason: [{required: true, message: '请输入奖罚原因', trigger: 'blur'}],
                     ecPoint: [{required: true, message: '请输入奖罚分', trigger: 'blur'}],
