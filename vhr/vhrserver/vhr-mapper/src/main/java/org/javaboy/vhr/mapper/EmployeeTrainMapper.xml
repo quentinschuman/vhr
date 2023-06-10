@@ -27,7 +27,8 @@
     values (#{id,jdbcType=INTEGER}, #{eid,jdbcType=INTEGER}, #{trainDate,jdbcType=DATE},
       #{trainContent,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="org.javaboy.vhr.model.EmployeeTrain" >
+  <insert id="insertSelective" parameterType="org.javaboy.vhr.model.EmployeeTrain" useGeneratedKeys="true"
+          keyProperty="id">
     insert into employeetrain
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

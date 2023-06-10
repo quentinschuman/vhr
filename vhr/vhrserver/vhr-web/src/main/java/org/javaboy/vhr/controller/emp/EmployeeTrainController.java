@@ -28,7 +28,7 @@ public class EmployeeTrainController {
     }
 
     @PostMapping("/")
-    public RespBean addEmpEc(@RequestBody EmployeeTrain employeeTrain) {
+    public RespBean addEmployeeTrain(@RequestBody EmployeeTrain employeeTrain) {
         if (employeeTrainService.addEmployeeTrain(employeeTrain) == 1) {
             return RespBean.ok("添加成功!");
         }
@@ -36,7 +36,7 @@ public class EmployeeTrainController {
     }
 
     @PutMapping("/")
-    public RespBean updateEmp(@RequestBody EmployeeTrain employeeTrain) {
+    public RespBean updateEmployeeTrain(@RequestBody EmployeeTrain employeeTrain) {
         if (employeeTrainService.updateEmployeeTrain(employeeTrain) == 1) {
             return RespBean.ok("更新成功!");
         }
