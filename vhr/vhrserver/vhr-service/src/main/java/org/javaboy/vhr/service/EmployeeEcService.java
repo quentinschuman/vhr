@@ -59,13 +59,13 @@ public class EmployeeEcService {
             MailSendLog mailSendLog = new MailSendLog();
             mailSendLog.setMsgId(msgId);
             mailSendLog.setCreateTime(new Date());
-            mailSendLog.setExchange(MailConstants.MAIL_EXCHANGE_NAME_EMP);
-            mailSendLog.setRouteKey(MailConstants.MAIL_ROUTING_KEY_NAME_EMP);
+            mailSendLog.setExchange(MailConstants.MAIL_EXCHANGE_NAME_EMPEC);
+            mailSendLog.setRouteKey(MailConstants.MAIL_ROUTING_KEY_NAME_EMPEC);
             mailSendLog.setEmpEcId(empec.getId());
             mailSendLog.setEmpId(empec.getEid());
             mailSendLog.setTryTime(new Date(System.currentTimeMillis() + 1000 * 60 * MailConstants.MSG_TIMEOUT));
             mailSendLogService.insert(mailSendLog);
-            rabbitTemplate.convertAndSend(MailConstants.MAIL_EXCHANGE_NAME_EMP, MailConstants.MAIL_ROUTING_KEY_NAME_EMP, empec, new CorrelationData(msgId));
+            rabbitTemplate.convertAndSend(MailConstants.MAIL_EXCHANGE_NAME_EMPEC, MailConstants.MAIL_ROUTING_KEY_NAME_EMPEC, empec, new CorrelationData(msgId));
         }
         return result;
     }
