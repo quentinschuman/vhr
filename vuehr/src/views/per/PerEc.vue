@@ -141,10 +141,10 @@
             <div>
                 <el-form :model="empEc" :rules="rules" ref="empEcForm">
                     <el-row>
-                        <el-col :span='6'>
+                        <el-col :span='7'>
                             <el-form-item label="员工姓名:" prop="eid">
                                 <el-select v-model="empEc.eid" placeholder="姓名" size="mini"
-                                       style="width: 150px;">
+                                       style="width: 200px;">
                                 <el-option
                                         v-for="item in empNames"
                                         :key="item.id"
@@ -155,50 +155,52 @@
                             </el-form-item>
                         </el-col>
                     </el-row>
-                    <el-row>
-                        <el-col :span="6">
-                            <el-form-item label="奖罚原因:" prop="ecReason">
-                                <el-input size="mini" style="width: 150px" prefix-icon="el-icon-edit" v-model="empEc.ecReason"
-                                          placeholder="请输入奖罚原因"></el-input>
-                            </el-form-item>
-                        </el-col>
-                        <el-col :span="6">
+                    <el-row :span="7">
+                        <el-col :span="7">
                             <el-form-item label="奖罚类别:" prop="ecType">
                                 <el-radio-group v-model="empEc.ecType">
                                     <el-radio label="0">奖</el-radio>
                                     <el-radio label="1">罚</el-radio>
                                 </el-radio-group>
                             </el-form-item>
-                        </el-col>
-                    </el-row>
+                        </el-col></el-row>
                     <el-row>
-                        <el-col :span="6">
-                            <el-form-item label="奖罚分:" prop="ecPoint">
-                                <el-input size="mini" style="width: 150px" prefix-icon="el-icon-edit"
-                                          v-model="empEc.ecPoint"></el-input>
-                            </el-form-item>
-                        </el-col>
                         <el-col :span="7">
-                            <el-form-item label="备注:" prop="remark">
-                                <el-input size="mini" style="width: 200px" prefix-icon="el-icon-edit"
-                                          v-model="empEc.remark" placeholder="请输入备注"></el-input>
+                            <el-form-item label="奖罚原因:" prop="ecReason">
+                                <el-input size="mini" style="width: 200px" prefix-icon="el-icon-edit" v-model="empEc.ecReason"
+                                          placeholder="请输入奖罚原因"></el-input>
                             </el-form-item>
                         </el-col>
                     </el-row>
                     <el-row>
-                        <el-col :span="6">
+                        <el-col :span="7">
                             <el-form-item label="奖罚日期:" prop="ecDate">
                                 <el-date-picker
                                         v-model="empEc.ecDate"
                                         size="mini"
                                         type="date"
                                         value-format="yyyy-MM-dd"
-                                        style="width: 130px;"
+                                        style="width: 200px;"
                                         placeholder="奖罚日期">
                                 </el-date-picker>
                             </el-form-item>
                         </el-col>
                     </el-row>
+                    <el-row>
+                        <el-col :span="7">
+                            <el-form-item label="奖罚分:" prop="ecPoint">
+                                <el-input size="mini" style="width: 200px" prefix-icon="el-icon-edit"
+                                          v-model="empEc.ecPoint" placeholder="请输入奖罚分"></el-input>
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
+                    <el-row :span="7">
+                        <el-col :span="7">
+                            <el-form-item label="备注:" prop="remark">
+                                <el-input size="mini" style="width: 200px" prefix-icon="el-icon-edit"
+                                          v-model="empEc.remark" placeholder="请输入备注"></el-input>
+                            </el-form-item>
+                        </el-col></el-row>
                 </el-form>
             </div>
             <span slot="footer" class="dialog-footer">
