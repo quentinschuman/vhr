@@ -22,4 +22,9 @@ public class MailserverApplication {
     Queue queueEmpec() {
         return new Queue(MailConstants.MAIL_QUEUE_NAME_EMPEC);
     }
+
+    @Bean
+    Queue queueEmpTrain() {
+        return new Queue(MailConstants.MAIL_QUEUE_NAME_EMPTRAIN);
+    }
 }
