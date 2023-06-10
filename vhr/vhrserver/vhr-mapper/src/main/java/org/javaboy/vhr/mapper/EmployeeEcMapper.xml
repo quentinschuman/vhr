@@ -151,7 +151,7 @@
         </if>
       </if>
       <if test="beginDateScope !=null">
-        and e.beginDate between #{beginDateScope[0]} and #{beginDateScope[1]}
+        and ec.beginDate between #{beginDateScope[0]} and #{beginDateScope[1]}
       </if>
     </where>
   </select>
