@@ -38,8 +38,8 @@
                         <el-col :span="7">
                             奖罚类别:
                             <el-radio-group v-model="searchValue.ecType">
-                                <el-radio label="劳动合同">奖</el-radio>
-                                <el-radio label="劳务合同">罚</el-radio>
+                                <el-radio label="0">奖</el-radio>
+                                <el-radio label="1">罚</el-radio>
                             </el-radio-group>
                         </el-col>
                     </el-row>
