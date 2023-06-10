@@ -74,7 +74,7 @@ public class EmployeeEcService {
         return employeeEcMapper.updateByPrimaryKeySelective(employeeEc);
     }
 
-    public Integer deleteEmpById(Integer id) {
+    public Integer deleteEmpEcById(Integer id) {
         return employeeEcMapper.deleteByPrimaryKey(id);
     }
 }

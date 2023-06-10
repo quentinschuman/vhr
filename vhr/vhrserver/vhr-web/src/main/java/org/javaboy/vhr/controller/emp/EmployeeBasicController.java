@@ -23,7 +23,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/employee/basic")
-public class EmpBasicController {
+public class EmployeeBasicController {
     @Autowired
     EmployeeService employeeService;
     @Autowired

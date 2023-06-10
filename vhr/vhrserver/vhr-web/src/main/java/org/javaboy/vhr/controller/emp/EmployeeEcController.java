@@ -17,7 +17,7 @@ import java.util.Date;
  */
 @RestController
 @RequestMapping("/employee/empEc")
-public class EmpEcController {
+public class EmployeeEcController {
 
     @Autowired
     private EmployeeEcService employeeEcService;
@@ -45,7 +45,7 @@ public class EmpEcController {
 
     @DeleteMapping("/{id}")
     public RespBean deleteEmpEcById(@PathVariable Integer id) {
-        if (employeeEcService.deleteEmpById(id) == 1) {
+        if (employeeEcService.deleteEmpEcById(id) == 1) {
             return RespBean.ok("删除成功!");
         }
         return RespBean.error("删除失败!");
