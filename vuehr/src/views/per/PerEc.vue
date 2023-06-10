@@ -81,38 +81,37 @@
                 </el-table-column>
                 <el-table-column
                         prop="eid"
-                        fixed
                         align="left"
                         label="员工编号"
-                        width="90">
+                        width="70">
                 </el-table-column>
                 <el-table-column
                         prop="ecDate"
                         label="奖罚日期"
                         align="left"
-                        width="85">
+                        width="150">
                 </el-table-column>
                 <el-table-column
                         prop="ecReason"
                         label="奖罚原因"
                         align="left"
-                        width="85">
+                        width="200">
                 </el-table-column>
                 <el-table-column
                         prop="ecPoint"
-                        width="95"
+                        width="70"
                         align="left"
                         label="奖罚分">
                 </el-table-column>
                 <el-table-column
                         prop="ecType"
-                        width="150"
+                        width="70"
                         align="left"
                         label="奖罚类型">
                 </el-table-column>
                 <el-table-column
                         prop="remark"
-                        width="70"
+                        width="300"
                         label="备注">
                 </el-table-column>
                 <el-table-column
