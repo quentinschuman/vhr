@@ -1,16 +1,13 @@
-package org.javaboy.vhr.controller.hr;
+package org.javaboy.vhr.controller.emp;
 
-import org.javaboy.vhr.model.Employee;
 import org.javaboy.vhr.model.EmployeeEc;
 import org.javaboy.vhr.model.RespBean;
 import org.javaboy.vhr.model.RespPageBean;
 import org.javaboy.vhr.service.EmployeeEcService;
-import org.javaboy.vhr.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * vhr
@@ -21,9 +18,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/employee/empEc")
 public class EmpEcController {
-
-    @Autowired
-    private EmployeeService employeeService;
 
     @Autowired
     private EmployeeEcService employeeEcService;
@@ -55,10 +49,5 @@ public class EmpEcController {
             return RespBean.ok("删除成功!");
         }
         return RespBean.error("删除失败!");
-    }
-
-    @GetMapping("/getAllEmployeeNames")
-    public List<Employee> getAllEmployeeNames() {
-        return employeeService.getAllEmployeeNames();
     }
 }

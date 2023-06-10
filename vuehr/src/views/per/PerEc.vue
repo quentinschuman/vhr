@@ -358,7 +358,7 @@
                 });
             },
             initEmployeeNames() {
-                let url = '/employee/empEc/getAllEmployeeNames';
+                let url = '/common/getAllEmployeeNames';
                 this.getRequest(url).then(resp => {
                     if(resp) {
                         this.empNames = resp;
