@@ -97,7 +97,7 @@
       and et.trainContent like concat('%', #{employeeTrain.trainContent}, '%')
     </if>
     <if test="beginDateScope !=null">
-      and et.beginDate between #{beginDateScope[0]} and #{beginDateScope[1]}
+      and et.trainDate between #{beginDateScope[0]} and #{beginDateScope[1]}
     </if>
     <if test="page !=null and size!=null">
       limit #{page},#{size}
@@ -115,7 +115,7 @@
         </if>
       </if>
       <if test="beginDateScope !=null">
-        and et.beginDate between #{beginDateScope[0]} and #{beginDateScope[1]}
+        and et.trainDate between #{beginDateScope[0]} and #{beginDateScope[1]}
       </if>
     </where>
   </select>
