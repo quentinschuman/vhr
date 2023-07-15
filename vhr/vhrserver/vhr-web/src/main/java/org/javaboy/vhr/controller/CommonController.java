@@ -1,7 +1,11 @@
 package org.javaboy.vhr.controller;
 
+import org.javaboy.vhr.model.Department;
 import org.javaboy.vhr.model.Employee;
+import org.javaboy.vhr.model.JobLevel;
+import org.javaboy.vhr.service.DepartmentService;
 import org.javaboy.vhr.service.EmployeeService;
+import org.javaboy.vhr.service.JobLevelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +26,24 @@ public class CommonController {
     @Autowired
     private EmployeeService employeeService;
 
+    @Autowired
+    private DepartmentService departmentService;
+
+    @Autowired
+    private JobLevelService jobLevelService;
+
     @GetMapping("/getAllEmployeeNames")
     public List<Employee> getAllEmployeeNames() {
         return employeeService.getAllEmployeeNames();
+    }
+
+    @GetMapping("/getDepartmentById")
+    public Department getDepartmentById(Integer id) {
+        return departmentService.getAllDepartments().get(id);
+    }
+
+    @GetMapping("getJobById")
+    public JobLevel getJobById(Integer id) {
+        return jobLevelService.getAllJobLevels().get(id);
     }
 }
