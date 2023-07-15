@@ -1,8 +1,14 @@
 package org.javaboy.vhr.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class EmployeeRemove {
+public class EmployeeRemove implements Serializable {
+
+    private static final long serialVersionUID = 6447861501198113576L;
+
     private Integer id;
 
     private Integer eid;
@@ -11,6 +17,7 @@ public class EmployeeRemove {
 
     private Integer afterJobId;
 
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
     private Date removeDate;
 
     private String reason;
