@@ -37,9 +37,19 @@ public class CommonController {
         return employeeService.getAllEmployeeNames();
     }
 
+    @GetMapping("/getAllDeps")
+    public List<Department> getAllDeps() {
+        return departmentService.getAllDepartmentsWithOutChildren();
+    }
+
     @GetMapping("/getDepartmentById")
     public Department getDepartmentById(Integer id) {
         return departmentService.getAllDepartments().get(id);
+    }
+
+    @GetMapping("/getAllJobs")
+    public List<JobLevel> getAllJobs() {
+        return jobLevelService.getAllJobLevels();
     }
 
     @GetMapping("getJobById")
