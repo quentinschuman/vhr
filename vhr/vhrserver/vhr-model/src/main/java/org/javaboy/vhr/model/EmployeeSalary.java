@@ -1,6 +1,11 @@
 package org.javaboy.vhr.model;
 
-public class EmpSalary {
+import java.io.Serializable;
+
+public class EmployeeSalary implements Serializable {
+
+    private static final long serialVersionUID = 6744951306898361300L;
+
     private Integer id;
 
     private Integer eid;

@@ -56,6 +56,16 @@ public class RabbitConfig {
     }
 
     @Bean
+    Queue mailQueueEmpRemove() {
+        return new Queue(MailConstants.MAIL_QUEUE_NAME_EMPREMOVE, true);
+    }
+
+    @Bean
+    Queue mailQueueEmpSalary() {
+        return new Queue(MailConstants.MAIL_QUEUE_NAME_EMPSALARY, true);
+    }
+
+    @Bean
     DirectExchange mailExchangeEmp() {
         return new DirectExchange(MailConstants.MAIL_EXCHANGE_NAME_EMP, true, false);
     }

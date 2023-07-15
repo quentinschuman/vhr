@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.javaboy.vhr.mapper.EmpSalaryMapper" >
-  <resultMap id="BaseResultMap" type="org.javaboy.vhr.model.EmpSalary" >
+<mapper namespace="org.javaboy.vhr.mapper.EmployeeSalaryMapper" >
+  <resultMap id="BaseResultMap" type="org.javaboy.vhr.model.EmployeeSalary" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="eid" property="eid" jdbcType="INTEGER" />
     <result column="sid" property="sid" jdbcType="INTEGER" />
@@ -12,19 +12,19 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from empsalary
+    from employeesalary
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from empsalary
+    delete from employeesalary
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.javaboy.vhr.model.EmpSalary" >
-    insert into empsalary (id, eid, sid)
+  <insert id="insert" parameterType="org.javaboy.vhr.model.EmployeeSalary" >
+    insert into employeesalary (id, eid, sid)
     values (#{id,jdbcType=INTEGER}, #{eid,jdbcType=INTEGER}, #{sid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="org.javaboy.vhr.model.EmpSalary" >
-    insert into empsalary
+  <insert id="insertSelective" parameterType="org.javaboy.vhr.model.EmployeeSalary" >
+    insert into employeesalary
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -48,8 +48,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.javaboy.vhr.model.EmpSalary" >
-    update empsalary
+  <update id="updateByPrimaryKeySelective" parameterType="org.javaboy.vhr.model.EmployeeSalary" >
+    update employeesalary
     <set >
       <if test="eid != null" >
         eid = #{eid,jdbcType=INTEGER},
@@ -60,10 +60,29 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.javaboy.vhr.model.EmpSalary" >
-    update empsalary
+  <update id="updateByPrimaryKey" parameterType="org.javaboy.vhr.model.EmployeeSalary" >
+    update employeesalary
     set eid = #{eid,jdbcType=INTEGER},
       sid = #{sid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="getEmployeeSalaryByPage" resultMap="BaseResultMap">
+    select * from employeesalary where 1=1
+    <if test="page !=null and size!=null">
+      limit #{page},#{size}
+    </if>
+  </select>
+  <select id="getTotal" resultType="java.lang.Long">
+    select count(*) from employeesalary es
+    <where>
+      <if test="employeeSalary!=null">
+        <if test="employeeSalary.eid !=null">
+          and es.eid #{employeeSalary.eid}
+        </if>
+      </if>
+    </where>
+  </select>
+  <select id="getEmployeeSalaryById" resultMap="BaseResultMap">
+    select * from employeesalary es where es.`id`=#{id}
+  </select>
 </mapper>
